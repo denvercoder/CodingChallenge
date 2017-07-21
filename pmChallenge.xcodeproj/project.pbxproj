@@ -8,20 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		D7A42CB41F21A94E008BA708 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A42CB31F21A94E008BA708 /* AppDelegate.swift */; };
-		D7A42CB61F21A94E008BA708 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A42CB51F21A94E008BA708 /* ViewController.swift */; };
 		D7A42CB91F21A94E008BA708 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7A42CB71F21A94E008BA708 /* Main.storyboard */; };
 		D7A42CBB1F21A94E008BA708 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7A42CBA1F21A94E008BA708 /* Assets.xcassets */; };
 		D7A42CBE1F21A94E008BA708 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7A42CBC1F21A94E008BA708 /* LaunchScreen.storyboard */; };
+		D7A42CC61F21AC06008BA708 /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A42CC51F21AC06008BA708 /* BookViewController.swift */; };
+		D7A42CC81F21B784008BA708 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A42CC71F21B784008BA708 /* SwiftyJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D7A42CB01F21A94E008BA708 /* pmChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pmChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7A42CB31F21A94E008BA708 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D7A42CB51F21A94E008BA708 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D7A42CB81F21A94E008BA708 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D7A42CBA1F21A94E008BA708 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D7A42CBD1F21A94E008BA708 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D7A42CBF1F21A94E008BA708 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D7A42CC51F21AC06008BA708 /* BookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
+		D7A42CC71F21B784008BA708 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,11 +57,12 @@
 			isa = PBXGroup;
 			children = (
 				D7A42CB31F21A94E008BA708 /* AppDelegate.swift */,
-				D7A42CB51F21A94E008BA708 /* ViewController.swift */,
 				D7A42CB71F21A94E008BA708 /* Main.storyboard */,
 				D7A42CBA1F21A94E008BA708 /* Assets.xcassets */,
 				D7A42CBC1F21A94E008BA708 /* LaunchScreen.storyboard */,
+				D7A42CC71F21B784008BA708 /* SwiftyJSON.swift */,
 				D7A42CBF1F21A94E008BA708 /* Info.plist */,
+				D7A42CC51F21AC06008BA708 /* BookViewController.swift */,
 			);
 			path = pmChallenge;
 			sourceTree = "<group>";
@@ -137,8 +140,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D7A42CB61F21A94E008BA708 /* ViewController.swift in Sources */,
+				D7A42CC61F21AC06008BA708 /* BookViewController.swift in Sources */,
 				D7A42CB41F21A94E008BA708 /* AppDelegate.swift in Sources */,
+				D7A42CC81F21B784008BA708 /* SwiftyJSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,6 +308,7 @@
 				D7A42CC41F21A94E008BA708 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
