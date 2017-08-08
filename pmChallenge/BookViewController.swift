@@ -9,12 +9,14 @@
 import UIKit
 import Foundation
 
-
+/*
 struct Book {
     let title: String
     let author: String
     let imageURL: String
 }
+ 
+ */
 
 class BookViewController: UITableViewController {
     
@@ -23,7 +25,6 @@ class BookViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        performSelector(inBackground: #selector(fetchJSON), with: nil)
         
     }
     
@@ -39,7 +40,9 @@ class BookViewController: UITableViewController {
                 }
             }
         }
-        performSelector(onMainThread: #selector(displayError), with: nil, waitUntilDone: false)
+        DispatchQueue.main.async {
+            self.displayError()
+        }
     }
     
     func parse(json: JSON) {
@@ -52,7 +55,9 @@ class BookViewController: UITableViewController {
             
             books.append(obj)
         }
-        tableView.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
     func displayError() {
@@ -77,6 +82,7 @@ class BookViewController: UITableViewController {
     }
 }
 
+/*
 
 extension Book {
     init?(json: [String: Any]) {
@@ -94,7 +100,7 @@ extension Book {
         
     }
 }
-
+*/
 
 
 /*
