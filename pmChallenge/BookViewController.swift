@@ -45,8 +45,8 @@ class BookViewController: UITableViewController {
     func parse(json: JSON) {
         for result in json[].arrayValue {
             let title = result["title"].stringValue
-            let author = result["title"].stringValue
-            let imageURL = result["title"].stringValue
+            let author = result["author"].stringValue
+            let imageURL = result["imageURL"].stringValue
             
             let obj = ["title": title, "author": author, "imageURL": imageURL]
             
