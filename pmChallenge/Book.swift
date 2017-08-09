@@ -45,6 +45,8 @@ struct Book {
                 } catch {
                     print("Problem parsing JSON: \(error)")
                 }
+                
+                completion(bookArray)
             }
         }
         task.resume()
