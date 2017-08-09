@@ -11,20 +11,32 @@ import Foundation
 struct Book {
     let title: String
     let author: String
-    let image: String
+    let imageURL: String
     
     enum SerializationError: Error {
         case missing(String)
     }
     
     init(json: [String:Any]) throws {
-        guard let title = json["title"] as? String else { throw SerializationError.missing("Title is missing")}
-        guard let author = json["author"] as? String else { throw SerializationError.missing("Author is missing")}
-        guard let image = json["imageURL"] as? String else { throw SerializationError.missing("Image URL is missing")}
+        if let title = json["title"] as? String
+        {
+            self.title = title
+        } else {
+            self.title = ""
+        }
+        if let author = json["author"] as? String
+        {
+            self.author = author
+        } else {
+            self.author = ""
+        }
+        if let imageURL = json["imageURL"] as? String
+        {
+            self.imageURL = imageURL
+        } else {
+            self.imageURL = ""
+        }
         
-        self.title = title
-        self.author = author
-        self.image = image
     }
     
     static let baseURL = "https://de-coding-test.s3.amazonaws.com/"
@@ -40,7 +52,6 @@ struct Book {
             if let data = data {
                 do {
                     if let json = try JSONSerialization.jsonObject(with: data) as? [[String: Any]] {
-                        print(json)
                         
                         for item in json{
                             try bookArray.append(Book.init(json: item))

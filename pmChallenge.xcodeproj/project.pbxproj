@@ -49,6 +49,7 @@
 			isa = PBXGroup;
 			children = (
 				D7A42CBA1F21A94E008BA708 /* Assets.xcassets */,
+				D7A42CBC1F21A94E008BA708 /* LaunchScreen.storyboard */,
 				D7A42CB71F21A94E008BA708 /* Main.storyboard */,
 			);
 			name = Views;
@@ -85,7 +86,6 @@
 				D7400BE61F3B6DB7002AF10A /* Views */,
 				D7400BE51F3B6DB1002AF10A /* Models */,
 				D7A42CB31F21A94E008BA708 /* AppDelegate.swift */,
-				D7A42CBC1F21A94E008BA708 /* LaunchScreen.storyboard */,
 				D7A42CBF1F21A94E008BA708 /* Info.plist */,
 			);
 			path = pmChallenge;
