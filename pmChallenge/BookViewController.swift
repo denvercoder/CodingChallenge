@@ -9,15 +9,6 @@
 import UIKit
 import Foundation
 
-/*
-struct Book {
-    let title: String
-    let author: String
-    let imageURL: String
-}
- 
- */
-
 class BookViewController: UITableViewController {
     
     var books = [[String:String]]()
@@ -25,38 +16,25 @@ class BookViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
     }
     
     func fetchJSON() {
         let urlString = "https://de-coding-test.s3.amazonaws.com/books.json"
         
         if let url = URL(string: urlString) {
-            if let data = try? Data(contentsOf: url) {
-                let json = JSON(data: data)
-                if json != nil {
-                    parse(json: json)
-                    return
+            URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+                do {
+                    let jsonData = try JSONSerialization.jsonObject(with: data!) as! [String: Any]
+                    print(jsonData)
+                    
+                }catch {
+                    print("Error fetching JSON")
                 }
-            }
+            }).resume()
+            
         }
         DispatchQueue.main.async {
             self.displayError()
-        }
-    }
-    
-    func parse(json: JSON) {
-        for result in json[].arrayValue {
-            let title = result["title"].stringValue
-            let author = result["author"].stringValue
-            let imageURL = result["imageURL"].stringValue
-            
-            let obj = ["title": title, "author": author, "imageURL": imageURL]
-            
-            books.append(obj)
-        }
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
         }
     }
     
@@ -81,27 +59,6 @@ class BookViewController: UITableViewController {
         return cell
     }
 }
-
-/*
-
-extension Book {
-    init?(json: [String: Any]) {
-        guard let title = json["title"] as? String,
-            let author = json["author"] as? String,
-            let imageURL = json["imageURL"] as? String
-            
-            else {
-                return nil
-        }
-        
-        self.title = title
-        self.author = author
-        self.imageURL = imageURL
-        
-    }
-}
-*/
-
 
 /*
  // Override to support conditional editing of the table view.

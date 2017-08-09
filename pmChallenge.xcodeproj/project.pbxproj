@@ -7,15 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D7400BE41F3B6CCF002AF10A /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7400BE31F3B6CCF002AF10A /* Book.swift */; };
 		D7A42CB41F21A94E008BA708 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A42CB31F21A94E008BA708 /* AppDelegate.swift */; };
 		D7A42CB91F21A94E008BA708 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7A42CB71F21A94E008BA708 /* Main.storyboard */; };
 		D7A42CBB1F21A94E008BA708 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7A42CBA1F21A94E008BA708 /* Assets.xcassets */; };
 		D7A42CBE1F21A94E008BA708 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7A42CBC1F21A94E008BA708 /* LaunchScreen.storyboard */; };
 		D7A42CC61F21AC06008BA708 /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A42CC51F21AC06008BA708 /* BookViewController.swift */; };
-		D7A42CC81F21B784008BA708 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A42CC71F21B784008BA708 /* SwiftyJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D7400BE31F3B6CCF002AF10A /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		D7A42CB01F21A94E008BA708 /* pmChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pmChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7A42CB31F21A94E008BA708 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7A42CB81F21A94E008BA708 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -23,7 +24,6 @@
 		D7A42CBD1F21A94E008BA708 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D7A42CBF1F21A94E008BA708 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D7A42CC51F21AC06008BA708 /* BookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
-		D7A42CC71F21B784008BA708 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +37,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D7400BE51F3B6DB1002AF10A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D7400BE31F3B6CCF002AF10A /* Book.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		D7400BE61F3B6DB7002AF10A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D7A42CBA1F21A94E008BA708 /* Assets.xcassets */,
+				D7A42CB71F21A94E008BA708 /* Main.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		D7400BE71F3B6DBF002AF10A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D7A42CC51F21AC06008BA708 /* BookViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		D7A42CA71F21A94D008BA708 = {
 			isa = PBXGroup;
 			children = (
@@ -56,13 +81,12 @@
 		D7A42CB21F21A94E008BA708 /* pmChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				D7400BE71F3B6DBF002AF10A /* Controllers */,
+				D7400BE61F3B6DB7002AF10A /* Views */,
+				D7400BE51F3B6DB1002AF10A /* Models */,
 				D7A42CB31F21A94E008BA708 /* AppDelegate.swift */,
-				D7A42CB71F21A94E008BA708 /* Main.storyboard */,
-				D7A42CBA1F21A94E008BA708 /* Assets.xcassets */,
 				D7A42CBC1F21A94E008BA708 /* LaunchScreen.storyboard */,
-				D7A42CC71F21B784008BA708 /* SwiftyJSON.swift */,
 				D7A42CBF1F21A94E008BA708 /* Info.plist */,
-				D7A42CC51F21AC06008BA708 /* BookViewController.swift */,
 			);
 			path = pmChallenge;
 			sourceTree = "<group>";
@@ -142,7 +166,7 @@
 			files = (
 				D7A42CC61F21AC06008BA708 /* BookViewController.swift in Sources */,
 				D7A42CB41F21A94E008BA708 /* AppDelegate.swift in Sources */,
-				D7A42CC81F21B784008BA708 /* SwiftyJSON.swift in Sources */,
+				D7400BE41F3B6CCF002AF10A /* Book.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
