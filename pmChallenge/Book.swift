@@ -13,21 +13,27 @@ struct Book {
     let author: String
     let image: String
     
-    init?(json: [String:Any]) throws {
-        guard let title = json["title"] as? String,
-            let author = json["author"] as? String,
-            let image = json["imageURL"] as? String else {
-                return nil
-        }
+    enum SerializationError: Error {
+        case missing(String)
+    }
+    
+    init(json: [String]) throws {
+        guard let title = json["title"] as? String else { throw SerializationError.missing("Title is missing")}
+        guard let author = json["author"] as? String else { throw SerializationError.missing("Author is missing")}
+        guard let image = json["imageURL"] as? String else { throw SerializationError.missing("Image URL is missing")}
         
         self.title = title
         self.author = author
         self.image = image
+        print(title)
+        print(author)
+        print(image)
     }
     
-    static let url = "https://de-coding-test.s3.amazonaws.com/books.json"
+    static let baseURL = "https://api.myjson.com/bins/"
     
-    static func getJSON(completion: @escaping ([Book]) -> Void) {
+    static func getJSON(withType typeOfRequest: String, completion: @escaping ([Book]) -> ()) {
+        let url = baseURL + typeOfRequest
         let request = URLRequest(url: URL(string: url)!)
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
@@ -36,9 +42,10 @@ struct Book {
             
             if let data = data {
                 do {
-                    if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                    if let json = try JSONSerialization.jsonObject(with: data) as? [Any] {
+                        print(json)
                         if let bookObject = try? Book(json: json) {
-                            bookArray.append(bookObject!)
+                            bookArray.append(bookObject)
                         }
                         
                     }
