@@ -17,7 +17,7 @@ struct Book {
         case missing(String)
     }
     
-    init(json: [String]) throws {
+    init(json: [String:Any]) throws {
         guard let title = json["title"] as? String else { throw SerializationError.missing("Title is missing")}
         guard let author = json["author"] as? String else { throw SerializationError.missing("Author is missing")}
         guard let image = json["imageURL"] as? String else { throw SerializationError.missing("Image URL is missing")}
@@ -25,9 +25,12 @@ struct Book {
         self.title = title
         self.author = author
         self.image = image
+        print(title)
+        print(author)
+        print(image)
     }
     
-    static let baseURL = "https://api.myjson.com/bins/"
+    static let baseURL = "https://de-coding-test.s3.amazonaws.com/"
     
     static func getJSON(withType typeOfRequest: String, completion: @escaping ([Book]) -> ()) {
         let url = baseURL + typeOfRequest
@@ -39,10 +42,11 @@ struct Book {
             
             if let data = data {
                 do {
-                    if let json = try JSONSerialization.jsonObject(with: data) as? [Any] {
+                    if let json = try JSONSerialization.jsonObject(with: data) as? [[String: Any]] {
                         print(json)
-                        if let bookObject = try? Book(json: json) {
-                            bookArray.append(bookObject)
+                        
+                        for item in json{
+                            try bookArray.append(Book.init(json: item))
                         }
                         
                     }

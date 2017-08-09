@@ -15,9 +15,9 @@ class BookViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Book.getJSON(withType: "83kcd") { (results: [Book]) in
+        Book.getJSON(withType: "books.json") { (results: [Book]) in
             for result in results {
-                print("\(result)\n\n")
+                print(result)
             }
         }
     }
