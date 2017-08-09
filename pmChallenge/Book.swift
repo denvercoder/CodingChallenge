@@ -25,9 +25,6 @@ struct Book {
         self.title = title
         self.author = author
         self.image = image
-        print(title)
-        print(author)
-        print(image)
     }
     
     static let baseURL = "https://api.myjson.com/bins/"
