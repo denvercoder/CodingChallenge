@@ -11,39 +11,19 @@ import Foundation
 
 class BookViewController: UITableViewController {
     
-    var books = [[String:String]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    }
-    
-    func fetchJSON() {
-        let urlString = "https://de-coding-test.s3.amazonaws.com/books.json"
-        
-        if let url = URL(string: urlString) {
-            URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
-                do {
-                    let jsonData = try JSONSerialization.jsonObject(with: data!) as! [String: Any]
-                    print(jsonData)
-                    
-                }catch {
-                    print("Error fetching JSON")
-                }
-            }).resume()
-            
-        }
-        DispatchQueue.main.async {
-            self.displayError()
+        Book.getJSON { (results: [Book]) in
+            for result in results {
+                print("\(result)\n\n")
+            }
         }
     }
+}
     
-    func displayError() {
-        let ac = UIAlertController(title: "Loading Error", message: "Json could not be loaded", preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .default))
-        present(ac, animated: true)
-    }
-    
+    /*
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return books.count
     }
@@ -60,6 +40,7 @@ class BookViewController: UITableViewController {
     }
 }
 
+ */
 /*
  // Override to support conditional editing of the table view.
  override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
