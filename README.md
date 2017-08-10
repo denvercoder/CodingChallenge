@@ -1,3 +1,3 @@
-##Coding Sample
+Coding Sample
 
-###Fetch a JSON file and parse it and load into an object.
+Fetch a JSON file and parse it and load into an object.
